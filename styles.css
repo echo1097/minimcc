@@ -1,0 +1,339 @@
+@keyframes colorSwirl {
+    0% { color: #A682FF; }  
+    50% { color: #82B4FF; }  
+    100% { color: #A682FF; }  
+}
+
+@keyframes developerSwirl {
+    0% { color: #FF8282; }    
+    50% { color: #82F0FF; }   
+    100% { color: #FF8282; }  
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('background.png') no-repeat center center;
+    background-size: cover;
+    filter: brightness(0.9);
+}
+
+.nav-bar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 1.5rem;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.nav-item:hover {
+    opacity: 0.8;
+}
+
+.nav-item[href*="discord"] {
+    color: #5865F2;
+}
+
+.nav-item[href*="exphost"] {
+    animation: colorSwirl 3s infinite ease-in-out;
+}
+
+.dev-credit {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    font-size: 1rem;
+    font-weight: 500;
+    animation: developerSwirl 3s infinite ease-in-out;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    z-index: 100;
+    top: 20px;
+}
+
+.header.hidden {
+    transform: translateY(-100%);
+}
+
+.header h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: 4px;
+}
+
+.content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10rem 2rem 2rem 2rem;
+    gap: 3rem;
+}
+
+.about-box {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 2.5rem;
+    border-radius: 15px;
+    max-width: 600px;
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.about-box:hover {
+    transform: translateY(-5px);
+}
+
+.about-box h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.about-box p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+.team-box {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 2.5rem;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 100%;
+    color: white;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.team-box h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.team-section {
+    margin-bottom: 2rem;
+}
+
+.team-section:last-child {
+    margin-bottom: 0;
+}
+
+.team-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #5865F2;
+    font-weight: 500;
+}
+
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.member {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.member:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.member img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.member span {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.sneak-peek-box {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 2.5rem;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 100%;
+    color: white;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.sneak-peek-box:hover {
+    transform: translateY(-5px);
+}
+
+.sneak-peek-box h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.sneak-peek-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.sneak-peek-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.devblog-box {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 2.5rem;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 100%;
+    color: white;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.devblog-box:hover {
+    transform: translateY(-5px);
+}
+
+.devblog-box h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.devblog-meta {
+    font-size: 0.9rem;
+    color: #82B4FF;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.devblog-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.devblog-content h3 {
+    font-size: 1.4rem;
+    color: #5865F2;
+    margin: 1.5rem 0 0.5rem 0;
+    font-weight: 500;
+}
+
+.devblog-content p {
+    margin-bottom: 1rem;
+}
+
+.devblog-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.devblog-content li {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .devblog-box {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+
+    .devblog-box h2 {
+        font-size: 1.75rem;
+    }
+
+    .devblog-content {
+        font-size: 1rem;
+    }
+}
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 3rem;
+    }
+
+    .about-box, .team-box, .sneak-peek-box {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+
+    .about-box h2, .team-box h2, .sneak-peek-box h2 {
+        font-size: 1.75rem;
+    }
+
+    .about-box p, .sneak-peek-content {
+        font-size: 1rem;
+    }
+
+    .team-section h3 {
+        font-size: 1.25rem;
+    }
+
+    .team-members {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
