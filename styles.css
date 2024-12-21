@@ -16,10 +16,18 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-y: scroll;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .background {
@@ -110,6 +118,9 @@ body {
     align-items: center;
     padding: 10rem 2rem 2rem 2rem;
     gap: 3rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .about-box {
@@ -117,6 +128,7 @@ body {
     padding: 2.5rem;
     border-radius: 15px;
     max-width: 600px;
+    width: 100%;
     text-align: center;
     color: white;
     backdrop-filter: blur(10px);
@@ -145,7 +157,6 @@ body {
     background: rgba(0, 0, 0, 0.75);
     padding: 2.5rem;
     border-radius: 15px;
-    max-width: 800px;
     width: 100%;
     color: white;
     backdrop-filter: blur(10px);
@@ -209,7 +220,6 @@ body {
     background: rgba(0, 0, 0, 0.75);
     padding: 2.5rem;
     border-radius: 15px;
-    max-width: 800px;
     width: 100%;
     color: white;
     backdrop-filter: blur(10px);
@@ -245,14 +255,16 @@ body {
     background: rgba(0, 0, 0, 0.75);
     padding: 2.5rem;
     border-radius: 15px;
-    max-width: 800px;
     width: 100%;
     color: white;
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    margin-bottom: 2rem;
     transform: translateY(0);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    margin-bottom: 2rem;
 }
 
 .devblog-box:hover {
@@ -298,34 +310,23 @@ body {
 }
 
 @media (max-width: 768px) {
-    .devblog-box {
-        padding: 2rem;
-        margin: 0 1rem;
+    .content {
+        padding: 8rem 1rem 1rem 1rem;
     }
 
-    .devblog-box h2 {
-        font-size: 1.75rem;
-    }
-
-    .devblog-content {
-        font-size: 1rem;
-    }
-}
-@media (max-width: 768px) {
     .header h1 {
         font-size: 3rem;
     }
 
-    .about-box, .team-box, .sneak-peek-box {
+    .about-box, .team-box, .sneak-peek-box, .devblog-box {
         padding: 2rem;
-        margin: 0 1rem;
     }
 
-    .about-box h2, .team-box h2, .sneak-peek-box h2 {
+    .about-box h2, .team-box h2, .sneak-peek-box h2, .devblog-box h2 {
         font-size: 1.75rem;
     }
 
-    .about-box p, .sneak-peek-content {
+    .about-box p, .sneak-peek-content, .devblog-content {
         font-size: 1rem;
     }
 
