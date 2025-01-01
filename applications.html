@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications - Mini MCC/Byte Battles</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background" style="background-image: url('background2.png');"></div>
+    
+    <nav class="nav-bar">
+        <a href="home.html" class="nav-item">Home</a>
+        <a href="https://discord.gg/yj9PEsT8Fj" target="_blank" rel="noopener noreferrer" class="nav-item">Discord</a>
+        <a href="sneakpeeks.html" class="nav-item">Sneak Peeks</a>
+        <a href="devblog.html" class="nav-item">Dev Blog</a>
+        <a href="minimcc.html" class="nav-item">Mini MCC</a>
+        <a href="https://www.exphost.net/" target="_blank" rel="noopener noreferrer" class="nav-item">ExpHost</a>
+        <a href="applications.html" class="nav-item">Applications</a>
+    </nav>
+
+    <header class="header" id="header">
+        <h1>APPLICATIONS</h1>
+    </header>
+
+    <main class="content">
+        <div class="tab-container">
+            <button class="tab-button active" onclick="showApplication('mod')">Mod Application</button>
+            <button class="tab-button" onclick="showApplication('builder')">Builder Application</button>
+            <button class="tab-button" onclick="showApplication('dev')">Developer Application</button>
+        </div>
+        <div id="mod-application" class="application-section"></div>
+        <div id="builder-application" class="application-section" style="display: none;"></div>
+        <div id="dev-application" class="application-section" style="display: none;"></div>
+    </main>
+
+    <div class="dev-credit">
+        Developed by echo 
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="staff.js"></script>
+    <script src="builder.js"></script>
+    <script src="dev.js"></script>
+    <script>
+        const root = ReactDOM.createRoot(document.getElementById('mod-application'));
+        root.render(React.createElement(App));
+        
+        const builderRoot = ReactDOM.createRoot(document.getElementById('builder-application'));
+        builderRoot.render(React.createElement(BuilderApp));
+        
+        const devRoot = ReactDOM.createRoot(document.getElementById('dev-application'));
+        devRoot.render(React.createElement(DevApp));
+
+        function showApplication(type) {
+            const modApp = document.getElementById('mod-application');
+            const builderApp = document.getElementById('builder-application');
+            const devApp = document.getElementById('dev-application');
+            const buttons = document.getElementsByClassName('tab-button');
+            
+            if (type === 'mod') {
+                modApp.style.display = 'block';
+                builderApp.style.display = 'none';
+                devApp.style.display = 'none';
+                buttons[0].classList.add('active');
+                buttons[1].classList.remove('active');
+                buttons[2].classList.remove('active');
+            } else if (type === 'builder') {
+                modApp.style.display = 'none';
+                builderApp.style.display = 'block';
+                devApp.style.display = 'none';
+                buttons[0].classList.remove('active');
+                buttons[1].classList.add('active');
+                buttons[2].classList.remove('active');
+            } else {
+                modApp.style.display = 'none';
+                builderApp.style.display = 'none';
+                devApp.style.display = 'block';
+                buttons[0].classList.remove('active');
+                buttons[1].classList.remove('active');
+                buttons[2].classList.add('active');
+            }
+        }
+
+        let lastScroll = 0;
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('hidden');
+            }
+            
+            if (currentScroll > lastScroll) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
